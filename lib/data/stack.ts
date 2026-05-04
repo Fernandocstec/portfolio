@@ -1,0 +1,15 @@
+export const techStack: string[] = [
+  "Laravel",
+  "Go",
+  "Python",
+  "Kafka",
+  "PostgreSQL",
+  "Docker",
+  "REST APIs",
+  "SOAP",
+  "React",
+  "Next.js",
+  "Tailwind CSS",
+  "Firebase",
+  "TRON / USDT",
+];
