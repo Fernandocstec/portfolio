@@ -7,8 +7,16 @@ import { Header } from "@/components/header";
 import { Hero } from "@/components/hero";
 import { Projects } from "@/components/projects";
 import { TechStack } from "@/components/tech-stack";
+import { setRequestLocale } from "next-intl/server";
 
-export default function Home() {
+export default async function HomePage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
   return (
     <>
       <Header />

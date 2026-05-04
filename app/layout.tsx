@@ -1,5 +1,6 @@
-import type { Metadata } from "next";
+import type { ReactNode } from "react";
 import { Geist, Geist_Mono } from "next/font/google";
+import { getLocale } from "next-intl/server";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -12,30 +13,19 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "Fernando Correa | Backend & Integration Engineer",
-  description:
-    "Backend & Integration Engineer specializing in scalable systems, fintech solutions, APIs, Go, Kafka, Laravel and PostgreSQL.",
-  openGraph: {
-    title: "Fernando Correa | Backend & Integration Engineer",
-    description:
-      "Backend & Integration Engineer specializing in scalable systems, fintech solutions, APIs, Go, Kafka, Laravel and PostgreSQL.",
-    type: "website",
-    locale: "en_US",
-  },
-};
-
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: ReactNode;
 }>) {
+  const locale = await getLocale();
+
   return (
     <html
-      lang="en"
+      lang={locale}
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="flex min-h-full flex-col">{children}</body>
     </html>
   );
 }

@@ -1,7 +1,10 @@
+import { getTranslations } from "next-intl/server";
 import { techStack } from "@/lib/data/stack";
 import { Section, SectionHeading } from "./section";
 
-export function TechStack() {
+export async function TechStack() {
+  const t = await getTranslations("stack");
+
   return (
     <Section
       id="stack"
@@ -10,9 +13,9 @@ export function TechStack() {
     >
       <SectionHeading
         id="stack-heading"
-        eyebrow="Toolkit"
-        title="Tech Stack"
-        description="Languages, platforms, and integration surfaces I use in production-grade work."
+        eyebrow={t("eyebrow")}
+        title={t("title")}
+        description={t("description")}
       />
       <div className="flex flex-wrap gap-2">
         {techStack.map((tech) => (

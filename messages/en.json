@@ -1,0 +1,132 @@
+{
+  "metadata": {
+    "title": "Fernando Correa | Backend & Integration Engineer",
+    "description": "Backend & Integration Engineer specializing in scalable systems, fintech solutions, APIs, Go, Kafka, Laravel and PostgreSQL."
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "stack": "Stack",
+    "contact": "Contact"
+  },
+  "header": {
+    "contactCta": "Contact",
+    "toggleMenu": "Toggle menu",
+    "navPrimary": "Primary",
+    "navMobile": "Mobile navigation",
+    "githubAria": "GitHub profile",
+    "linkedinAria": "LinkedIn profile"
+  },
+  "hero": {
+    "role": "Backend & Integration Engineer",
+    "headline": "Building scalable systems, fintech solutions, and event-driven architectures.",
+    "intro": "Backend engineer focused on integrations and financial platforms. I work with <stack>Laravel, Go, Python, Kafka, and PostgreSQL</stack> to ship distributed systems, event-driven pipelines, and APIs that stay dependable at scale.",
+    "viewProjects": "View Projects",
+    "contactMe": "Contact Me"
+  },
+  "about": {
+    "eyebrow": "Profile",
+    "title": "About",
+    "description": "Systems-first engineering: contracts, queues, and data paths you can operate.",
+    "p1": "Backend & Integration Engineer focused on scalable systems and financial technology. I design backends in Laravel, Go, and Python, pairing distributed systems with Kafka and PostgreSQL for throughput you can reason about in incidents—not only in diagrams.",
+    "p2": "Shipped work spans ERP customization, real-time operations, and integrations over REST and SOAP, with automation that replaces fragile spreadsheets. Today I build payment infrastructure that connects PIX with blockchain settlement (USDT on TRON), prioritizing ledger integrity, async processing, and backends that stay boring under load."
+  },
+  "capabilities": {
+    "eyebrow": "Scope",
+    "title": "What I Build",
+    "description": "End-to-end backend and integration work—from first API contract to production operations.",
+    "items": [
+      {
+        "title": "Backend Systems",
+        "description": "Services and APIs designed for clarity, observability, and growth under real traffic."
+      },
+      {
+        "title": "API & System Integrations",
+        "description": "REST and SOAP bridges between ERPs, partners, and internal platforms with stable contracts."
+      },
+      {
+        "title": "Event-Driven Architecture",
+        "description": "Kafka-backed pipelines with reliable consumption, retries, and operational guardrails."
+      },
+      {
+        "title": "Fintech & Payment Systems",
+        "description": "Ledger flows, wallets, and regulated rails with emphasis on correctness and auditability."
+      },
+      {
+        "title": "ERP Customization",
+        "description": "Tailored modules and data paths that align enterprise processes with external ecosystems."
+      },
+      {
+        "title": "Process Automation",
+        "description": "Workflows that remove manual handoffs while keeping humans in the loop where it matters."
+      }
+    ]
+  },
+  "projects": {
+    "eyebrow": "Work",
+    "title": "Featured Projects",
+    "description": "Representative systems—payment rails, event-driven ledgers, and ERP integration layers.",
+    "privateRepo": "Private Repository",
+    "items": [
+      {
+        "title": "Fintech Payment Platform",
+        "description": "A backend-oriented payment platform integrating PIX with blockchain settlement using USDT on TRON.",
+        "tech": ["Laravel", "Go", "Kafka", "PostgreSQL", "Docker", "TRON", "REST APIs"],
+        "highlights": [
+          "Microservices architecture",
+          "Event-driven processing",
+          "Ledger and wallet flows",
+          "PIX and blockchain integration"
+        ]
+      },
+      {
+        "title": "Event-Driven Ledger System",
+        "description": "A Kafka-based financial ledger simulation focused on idempotency, asynchronous processing and reliable event consumption.",
+        "tech": ["Go", "Kafka", "PostgreSQL", "Docker"],
+        "highlights": [
+          "Event consumers",
+          "Retry and DLQ strategy",
+          "Idempotent transactions",
+          "High-throughput processing"
+        ]
+      },
+      {
+        "title": "ERP Integration & Automation Hub",
+        "description": "A system integration layer designed to connect ERP platforms, external APIs and reporting environments.",
+        "tech": ["Laravel", "PostgreSQL", "REST APIs", "SOAP", "SQL"],
+        "highlights": [
+          "ERP customization",
+          "External API integrations",
+          "SQL reporting",
+          "Workflow automation"
+        ]
+      }
+    ]
+  },
+  "stack": {
+    "eyebrow": "Toolkit",
+    "title": "Tech Stack",
+    "description": "Languages, platforms, and integration surfaces I use in production-grade work."
+  },
+  "focus": {
+    "eyebrow": "Current focus",
+    "body": "Currently working on payment systems integrating PIX with blockchain (USDT/TRON), focusing on scalable backend architecture and event-driven systems."
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "title": "Contact",
+    "description": "Interested in backend, integration, fintech or event-driven systems? Let's connect.",
+    "linkedin": "LinkedIn",
+    "github": "GitHub",
+    "email": "Email"
+  },
+  "footer": {
+    "line": "© 2026 Fernando Correa. Backend & Integration Engineer."
+  },
+  "language": {
+    "label": "Language",
+    "pt": "PT",
+    "en": "EN"
+  }
+}

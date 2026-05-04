@@ -7,7 +7,7 @@ export const siteLinks = {
 
 export const site = {
   name: "Fernando Correa",
-  role: "Backend & Integration Engineer",
-  headline:
-    "Building scalable systems, fintech solutions, and event-driven architectures.",
 } as const;
+
+/** Same order as `projects.items` in messages (en/pt). */
+export const projectRepoHref = "#" as const;

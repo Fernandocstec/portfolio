@@ -1,16 +1,24 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
 import { siteLinks } from "@/lib/data/site";
 import { externalLinkProps } from "@/lib/utils/links";
-import { IconClose, IconGithub, IconLinkedin, IconMail, IconMenu } from "./icons";
+import { LanguageSwitcher } from "./language-switcher";
+import {
+  IconClose,
+  IconGithub,
+  IconLinkedin,
+  IconMail,
+  IconMenu,
+} from "./icons";
 
-const navItems = [
-  { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
-  { label: "Projects", href: "#projects" },
-  { label: "Stack", href: "#stack" },
-  { label: "Contact", href: "#contact" },
+const NAV_KEYS = [
+  { key: "home", href: "#home" },
+  { key: "about", href: "#about" },
+  { key: "projects", href: "#projects" },
+  { key: "stack", href: "#stack" },
+  { key: "contact", href: "#contact" },
 ] as const;
 
 function navLinkClass() {
@@ -20,6 +28,8 @@ function navLinkClass() {
 export function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const tNav = useTranslations("nav");
+  const tHeader = useTranslations("header");
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -47,28 +57,33 @@ export function Header() {
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
         <a
           href="#home"
-          className="text-sm font-semibold tracking-tight text-[var(--text-primary)] hover:text-[var(--accent)] transition-colors"
+          className="text-sm font-semibold tracking-tight text-[var(--text-primary)] transition-colors hover:text-[var(--accent)]"
         >
           FC<span className="text-[var(--text-muted)]">.</span>
         </a>
 
         <nav
-          className="hidden md:flex items-center gap-8"
-          aria-label="Primary"
+          className="hidden gap-8 md:flex"
+          aria-label={tHeader("navPrimary")}
         >
-          {navItems.map((item) => (
-            <a key={item.href} href={item.href} className={navLinkClass()}>
-              {item.label}
+          {NAV_KEYS.map((item) => (
+            <a
+              key={item.key}
+              href={item.href}
+              className={navLinkClass()}
+            >
+              {tNav(item.key)}
             </a>
           ))}
         </nav>
 
-        <div className="hidden md:flex items-center gap-2">
+        <div className="hidden items-center gap-3 md:flex">
+          <LanguageSwitcher />
           <a
             href={siteLinks.github}
             {...externalLinkProps(siteLinks.github)}
             className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-[var(--border)] bg-[var(--glass)] text-[var(--text-muted)] transition hover:border-[var(--border-strong)] hover:text-[var(--text-primary)]"
-            aria-label="GitHub"
+            aria-label={tHeader("githubAria")}
           >
             <IconGithub className="h-[18px] w-[18px]" />
           </a>
@@ -76,7 +91,7 @@ export function Header() {
             href={siteLinks.linkedin}
             {...externalLinkProps(siteLinks.linkedin)}
             className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-[var(--border)] bg-[var(--glass)] text-[var(--text-muted)] transition hover:border-[var(--border-strong)] hover:text-[var(--text-primary)]"
-            aria-label="LinkedIn"
+            aria-label={tHeader("linkedinAria")}
           >
             <IconLinkedin className="h-[18px] w-[18px]" />
           </a>
@@ -85,24 +100,27 @@ export function Header() {
             className="ml-1 inline-flex h-9 items-center gap-2 rounded-lg bg-[var(--accent)] px-3.5 text-sm font-medium text-[var(--accent-foreground)] shadow-sm transition hover:brightness-110"
           >
             <IconMail className="h-4 w-4" />
-            Contact
+            {tHeader("contactCta")}
           </a>
         </div>
 
-        <button
-          type="button"
-          className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-[var(--border)] bg-[var(--glass)] text-[var(--text-primary)] md:hidden"
-          aria-expanded={open}
-          aria-controls="mobile-nav"
-          onClick={() => setOpen((v) => !v)}
-        >
-          {open ? (
-            <IconClose className="h-5 w-5" />
-          ) : (
-            <IconMenu className="h-5 w-5" />
-          )}
-          <span className="sr-only">Toggle menu</span>
-        </button>
+        <div className="flex items-center gap-2 md:hidden">
+          <LanguageSwitcher />
+          <button
+            type="button"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-[var(--border)] bg-[var(--glass)] text-[var(--text-primary)]"
+            aria-expanded={open}
+            aria-controls="mobile-nav"
+            aria-label={tHeader("toggleMenu")}
+            onClick={() => setOpen((v) => !v)}
+          >
+            {open ? (
+              <IconClose className="h-5 w-5" />
+            ) : (
+              <IconMenu className="h-5 w-5" />
+            )}
+          </button>
+        </div>
       </div>
 
       {open ? (
@@ -112,23 +130,23 @@ export function Header() {
         >
           <nav
             className="mx-auto flex max-w-6xl flex-col gap-1 px-4 py-6 sm:px-6"
-            aria-label="Mobile"
+            aria-label={tHeader("navMobile")}
           >
-            {navItems.map((item) => (
+            {NAV_KEYS.map((item) => (
               <a
-                key={item.href}
+                key={item.key}
                 href={item.href}
                 className="rounded-xl px-4 py-3 text-base font-medium text-[var(--text-primary)] hover:bg-[var(--glass)]"
                 onClick={() => setOpen(false)}
               >
-                {item.label}
+                {tNav(item.key)}
               </a>
             ))}
             <div className="mt-4 flex flex-wrap gap-2 border-t border-[var(--border)] pt-6">
               <a
                 href={siteLinks.github}
                 {...externalLinkProps(siteLinks.github)}
-                className="inline-flex flex-1 min-w-[120px] items-center justify-center gap-2 rounded-xl border border-[var(--border)] bg-[var(--glass)] px-4 py-3 text-sm font-medium text-[var(--text-primary)]"
+                className="inline-flex min-w-[120px] flex-1 items-center justify-center gap-2 rounded-xl border border-[var(--border)] bg-[var(--glass)] px-4 py-3 text-sm font-medium text-[var(--text-primary)]"
                 onClick={() => setOpen(false)}
               >
                 <IconGithub className="h-4 w-4" />
@@ -137,7 +155,7 @@ export function Header() {
               <a
                 href={siteLinks.linkedin}
                 {...externalLinkProps(siteLinks.linkedin)}
-                className="inline-flex flex-1 min-w-[120px] items-center justify-center gap-2 rounded-xl border border-[var(--border)] bg-[var(--glass)] px-4 py-3 text-sm font-medium text-[var(--text-primary)]"
+                className="inline-flex min-w-[120px] flex-1 items-center justify-center gap-2 rounded-xl border border-[var(--border)] bg-[var(--glass)] px-4 py-3 text-sm font-medium text-[var(--text-primary)]"
                 onClick={() => setOpen(false)}
               >
                 <IconLinkedin className="h-4 w-4" />
@@ -149,7 +167,7 @@ export function Header() {
                 onClick={() => setOpen(false)}
               >
                 <IconMail className="h-4 w-4" />
-                Contact
+                {tHeader("contactCta")}
               </a>
             </div>
           </nav>
